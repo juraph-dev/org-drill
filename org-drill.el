@@ -719,7 +719,7 @@ CMD is bound, or nil if it is not bound to a key."
 (defun org-drill-time-to-inactive-org-timestamp (time)
   "Convert TIME into org-mode timestamp."
   (format-time-string
-   (concat "[" (substring (cdr org-time-stamp-formats) 1 -1) "]")
+   (concat "[" (substring (cdr org-time-stamp-formats)) "]")
    time))
 
 (defun org-drill-map-entries (func &optional scope drill-match &rest skip)
