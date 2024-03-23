@@ -60,6 +60,7 @@
 (require 'persist)
 (require 'seq)
 (require 'subr-x)
+(require 'org-roam)
 
 (defgroup org-drill nil
   "Options concerning interactive drill sessions in Org mode (org-drill)."
@@ -721,7 +722,7 @@ CMD is bound, or nil if it is not bound to a key."
   (format-time-string
    (if (< emacs-major-version 29)
        (concat "[" (substring (cdr org-time-stamp-formats) 1 -1) "]")
-       (org-time-stamp-format t 'no-bracket))
+       (org-time-stamp-format t 'no-bracket))))
 
 
 (defun org-drill-map-entries (func &optional scope drill-match &rest skip)
@@ -2479,6 +2480,7 @@ See `org-drill' for more details."
 
 (defun org-drill-entry-f (session complete-func)
   (org-drill-goto-drill-entry-heading)
+  ;; (org-roam-ui-node-zoom)
   ;;(unless (org-drill-part-of-drill-entry-p)
   ;;  (error "Point is not inside a drill entry"))
   ;;(unless (org-at-heading-p)
